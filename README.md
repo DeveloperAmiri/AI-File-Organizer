@@ -120,5 +120,3 @@ If you'd like to improve the project, feel free to fork it and submit a PR.
 MIT License
 
 ---
-
-Made with ❤️ using Python.
