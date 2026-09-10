@@ -1,120 +1,81 @@
+<div align="center">
+
 # 📂 AI File Organizer
 
-Automatically organize files into folders based on their file extensions.
+**Turn a messy folder into tidy categories in one command.** Images, Videos, Music, Documents, Archives, Code & more — pure Python, zero dependencies.
 
-A lightweight and fast Python utility that scans a directory and moves files into categorized folders such as Images, Videos, Documents, Music, Archives, and more.
+![Python](https://img.shields.io/badge/Python-3.9%2B-3776AB?logo=python&logoColor=white)
+![Dependencies](https://img.shields.io/badge/dependencies-0-success)
+![Tests](https://img.shields.io/badge/tests-7%20passed-brightgreen)
+![License](https://img.shields.io/badge/License-MIT-green)
+[![CI](https://github.com/DeveloperAmiri/AI-File-Organizer/actions/workflows/ci.yml/badge.svg)](https://github.com/DeveloperAmiri/AI-File-Organizer/actions/workflows/ci.yml)
+
+</div>
 
 ---
 
 ## ✨ Features
 
-- 🚀 Fast and lightweight
-- 📁 Automatic file organization
-- 🖼️ Supports images
-- 🎥 Supports videos
-- 🎵 Supports music
-- 📄 Supports documents
-- 📦 Supports archives
-- 💻 Supports source code files
-- 📂 Creates folders automatically
-- 🌍 Cross-platform (Windows, Linux, macOS)
-- 🐍 Pure Python (No third-party libraries)
-
----
+- 🚀 **One-command cleanup** — `python organizer.py ~/Downloads` and you're done
+- 👀 **Dry-run mode** — preview every move before anything changes (`--dry-run`)
+- 🛡️ **Never overwrites** — collisions become `file_1.ext`, `file_2.ext`, …
+- 🙈 **Smart skips** — ignores subfolders, hidden files (unless `--include-hidden`) and itself
+- 🌍 **Cross-platform** — Windows, Linux, macOS
+- 🐍 **Stdlib only** — no `pip install` needed, ever
 
 ## 📦 Categories
 
 | Folder | Extensions |
-|---------|------------|
-| Images | png, jpg, jpeg, gif, bmp, webp |
-| Videos | mp4, mkv, avi, mov |
-| Music | mp3, wav, flac, aac |
-| Documents | pdf, docx, doc, txt, xlsx, pptx |
-| Archives | zip, rar, 7z, tar, gz |
-| Code | py, js, html, css, cpp, c, java, json |
-| Others | Any unsupported file |
+|---|---|
+| Images | png, jpg, jpeg, gif, bmp, webp, svg, ico, heic |
+| Videos | mp4, mkv, avi, mov, webm, flv, wmv |
+| Music | mp3, wav, flac, aac, ogg, m4a |
+| Documents | pdf, docx, txt, pptx, xlsx, csv, md, epub, … |
+| Archives | zip, rar, 7z, tar, gz, bz2, xz |
+| Code | py, js, ts, html, css, java, json, sh, sql, … |
+| Apps | exe, msi, dmg, pkg, deb, apk, … |
+| Fonts | ttf, otf, woff, woff2 |
+| Others | everything else |
 
----
-
-## 🚀 Installation
-
-Clone the repository
+## 🚀 Quickstart
 
 ```bash
-git clone https://github.com/yourusername/AI-File-Organizer.git
-```
-
-Go to project directory
-
-```bash
+git clone https://github.com/DeveloperAmiri/AI-File-Organizer.git
 cd AI-File-Organizer
+
+# preview first (recommended)
+python organizer.py ~/Downloads --dry-run
+
+# actually organize
+python organizer.py ~/Downloads --verbose
 ```
 
-Run
+No arguments? It will simply ask for a folder path.
+
+```
+usage: organizer.py [--dry-run] [--include-hidden] [--verbose] [folder]
+```
+
+## 🧪 Tests
 
 ```bash
-python organizer.py
+python -m pytest tests/ -q   # 7 tests, no extra deps (uses tmp_path)
 ```
 
----
-
-## Example
-
-Before
+## 🗂️ Project structure
 
 ```
-Downloads/
-    image.png
-    movie.mp4
-    code.py
-    music.mp3
+AI-File-Organizer/
+├── organizer.py        CLI + organize() / categorize() logic
+├── tests/              pytest suite (tmp_path based)
+├── requirements.txt    empty — stdlib only
+└── README.md
 ```
 
-After
+## 🤝 Contributing
 
-```
-Downloads/
-│
-├── Images/
-│     image.png
-│
-├── Videos/
-│     movie.mp4
-│
-├── Code/
-│     code.py
-│
-└── Music/
-      music.mp3
-```
+Pull requests welcome — fork, branch, PR. Please keep it dependency-free.
 
----
+## 📄 License
 
-## Requirements
-
-- Python 3.8+
-
----
-
-## Future Plans
-
-- GUI Version
-- Undo Feature
-- Duplicate Finder
-- AI File Classification
-- File Type Detection by Content
-- Drag & Drop Support
-
----
-
-## Contributing
-
-Pull requests are welcome.
-
-If you'd like to improve the project, feel free to fork it and submit a PR.
-
----
-
-## License
-
-MIT License
+MIT — see [LICENSE](LICENSE).
